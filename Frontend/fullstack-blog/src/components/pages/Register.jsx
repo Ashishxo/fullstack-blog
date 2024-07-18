@@ -22,11 +22,11 @@ function Register() {
   }
 
   return (
-    <form className='register'>
+    <form className='register' onSubmit={register}>
         <h1>Register</h1>
         <input type="text" placeholder='Username' value={username} onChange={(ev) => setUsername(ev.target.value)}/>
         <input type="password" placeholder='Password' value={password} onChange={(ev) => setPassword(ev.target.value)}/>
-        <button onClick={register}>Register</button>
+        <button>Register</button>
     </form>
   )
 }

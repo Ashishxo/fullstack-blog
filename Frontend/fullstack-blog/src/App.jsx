@@ -6,32 +6,36 @@ import LoginPage from './components/pages/LoginPage'
 import Register from './components/pages/Register'
 
 import './App.css'
+import { UserContextProvider } from './userContext'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <Routes>
+    <UserContextProvider>
+      <Routes>
 
-      <Route path="/" element={<Layout/>}>
+          <Route path="/" element={<Layout/>}>
 
-      <Route index element={
-        <Home/>
-      }/>
+          <Route index element={
+            <Home/>
+          }/>
 
-      <Route path={'/login'} element={
-        <LoginPage/>
-      } />
+          <Route path={'/login'} element={
+            <LoginPage/>
+          } />
 
-      <Route path={'/register'} element={
-        <Register/>
-      } />
+          <Route path={'/register'} element={
+            <Register/>
+          } />
 
-      </Route>
+          </Route>
 
-      
+      </Routes>
+    </UserContextProvider>
 
-  </Routes>
+
+    
    
     
   )
