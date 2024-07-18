@@ -57,7 +57,8 @@ app.post('/login', async (req, res) => {
         jwt.sign({ username, id:userDoc._id }, secret, {}, function(err, token) {
             if(err) throw err;
             res.cookie('token', token).json({
-                
+                id: userDoc._id,
+                username,
             });
           });
     }else{
@@ -75,7 +76,7 @@ app.get('/profile', (req, res) =>{
 })
 
 app.post('/logout', (req, res)=>{
-    res.cookie('token', '').json(ok)
+    res.cookie('token', '').json('ok')
 })
 
 app.listen(PORT, ()=>{
