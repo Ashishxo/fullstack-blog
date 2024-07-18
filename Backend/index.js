@@ -1,14 +1,26 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+import dotenv from 'dotenv';
 import { userModel } from "./models/User.js";
+
+dotenv.config({
+    path: "./.env"
+})
+
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 app.use(cors({credentials: true, origin:'http://localhost:5173'}));
 app.use(express.json());
 
 const connectDB = async () => {
-    await mongoose.connect('mongodb+srv://ashishdhiwar:nW9vebZ7r6jqc47R@main.3hsboq8.mongodb.net/?retryWrites=true&w=majority&appName=main');
+    try {
+        await mongoose.connect(process.env.MONGODB_URL);
+    } catch (error) {
+        console.log(error);
+    }
+    
 }
 
 connectDB();
@@ -27,8 +39,8 @@ app.post('/register', async (req, res)=>{
     
 });
 
-app.listen(4000, ()=>{
-    console.log("Listening at PORT 4000...")
+app.listen(PORT, ()=>{
+    console.log(`Listening at PORT ${PORT}...`)
 })
 
 
