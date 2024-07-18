@@ -4,9 +4,11 @@ import {Route, Routes} from 'react-router-dom'
 import Layout from './components/Layout'
 import LoginPage from './components/pages/LoginPage'
 import Register from './components/pages/Register'
+import CreatePost from './components/pages/CreatePost'
 
 import './App.css'
 import { UserContextProvider } from './userContext'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -27,6 +29,10 @@ function App() {
 
           <Route path={'/register'} element={
             <Register/>
+          } />
+
+          <Route path={'/create'} element={
+            <CreatePost/>
           } />
 
           </Route>
