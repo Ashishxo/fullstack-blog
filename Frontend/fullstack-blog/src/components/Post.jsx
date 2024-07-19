@@ -1,19 +1,20 @@
 import React from 'react'
+import {format} from 'date-fns'
 
-export default function Post() {
+export default function Post({title, summary, cover, content, createdAt, author}) {
   return (
     <div className="post">
         <div className="image">
-          <img src="https://duet-cdn.vox-cdn.com/thumbor/0x0:600x337/828x552/filters:focal(300x169:301x170):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/25515699/ducks.jpg" alt="" />
+          <img src={"http://localhost:4000/"+cover} alt="" />
         </div>
         
         <div className="texts">
-          <h2>The Verge’s favorite board and video games</h2>
+          <h2>{title}</h2>
           <p className="info">
-            <a href="" className="author">Ashish Dhiwar</a>
-            <time>2024-09-18 22:43</time>
+            <a href="" className="author">{author.username}</a>
+            <time>{format(new Date(createdAt), 'd MMM y, h:m aaa')}</time>
           </p>
-          <p className='summary'>When you want to escape from your day-to-day responsibilities, a good game can help.</p>
+          <p className='summary'>{summary}</p>
         </div>
 
       </div>

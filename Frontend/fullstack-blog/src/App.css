@@ -101,6 +101,6 @@ button{
   padding: 7px;
 }
 
-form h1{
+form.login h1, form.register{
   text-align: center;
 }
