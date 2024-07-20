@@ -8,6 +8,8 @@ import CreatePost from './components/pages/CreatePost'
 
 import './App.css'
 import { UserContextProvider } from './userContext'
+import PostPage from './components/pages/PostPage'
+import EditPost from './components/pages/EditPost'
 
 
 function App() {
@@ -34,6 +36,14 @@ function App() {
           <Route path={'/create'} element={
             <CreatePost/>
           } />
+
+          <Route path='/post/:id' element={
+            <PostPage/>
+          }/>
+
+          <Route path='/edit/:id'element={
+            <EditPost/>
+          }/>
 
           </Route>
 
